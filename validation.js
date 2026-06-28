@@ -20,3 +20,15 @@ function validerPassword(valeur) {
     //si toutes les conditions sont remplies le mot de passe est valide
     return { valide: true, message: "Mot de passe valide" }
 }
+
+//fonction qui verifie le formulaire et affiche le message de validation
+function verifierFormulaire() {
+    const valeur = document.getElementById("motdepasse").value;
+    const resultat = validerPassword(valeur);
+    const message = document.getElementById("message-password");
+
+    message.textContent = resultat.message;
+    message.style.color = resultat.valide ? "green" : "red";
+
+    return resultat.valide;
+}
